@@ -20,7 +20,7 @@ git clone https://github.com/lu0/rofi-blurry-powermenu.git
 cd rofi-blurry-powermenu
 cp -r powermenu.sh fullscreen_powermenu.rasi ~/.config/rofi
 sudo cp -r fonts/* /usr/share/fonts/
-cd && rm -rf ~/.config/rofi-blurry-powermenu 
+cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
 ```
 
 ## Usage
