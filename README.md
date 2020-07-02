@@ -19,7 +19,7 @@ git clone https://github.com/lu0/rofi-blurry-powermenu.git
 # Copy only the neccesary files
 cd rofi-blurry-powermenu
 cp -r powermenu.sh fullscreen_powermenu.rasi ~/.config/rofi
-cp -r fonts/* /usr/share/fonts/
+sudo cp -r fonts/* /usr/share/fonts/
 cd && rm -rf ~/.config/rofi-blurry-powermenu 
 ```
 
@@ -30,4 +30,5 @@ Run the script or assign it to a keybinding.
 ```
 
 ## Notes
+Tested under Linux Mint Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
 Tested under Rofi 1.5.4 and ImageMagick 8:6.9.10.23 :)
