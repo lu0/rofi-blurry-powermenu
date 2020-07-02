@@ -25,7 +25,7 @@ options="$shutdown\n$reboot\n$sleep\n$logout\n$lock"
 selected="$(echo -e "$options" | 
             rofi -show-icons -theme fullscreen_powermenu.rasi \
                  -fake-background $SS_PATH -fake-transparency \
-                 -p "See you later ${LOGNAME^}!" -dmenu -selected-row 4)"
+                 -p "See you later, ${LOGNAME^}!" -dmenu -selected-row 4)"
 
 case $selected in
 
