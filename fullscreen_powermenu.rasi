@@ -1,0 +1,72 @@
+/*  
+ *
+ *  Rofi theme for fullscreen powermenu
+ *  Resolution: 1920x1080
+ *
+ *  Author: Lucero Alvarado
+ *  Github: @lu0
+ *
+*/
+
+* {
+  text-font:              "WeblySleek UI Normal 60";
+  icon-font:              "feather 70";
+  content-position:       300px 400px;      
+  title-margins:          50px 200px;
+  space-between-options:  50px;
+  option-inset-padding:   40px 45px 30px -85px;
+
+  window-bg-color:        rgba(15, 15, 15, 0.7);
+  title-text-color:       rgba(141, 145, 148, 1);
+  selected-bg-color:      rgba(100, 100, 100, 0.4);
+  unselected-bg-color:    rgba(100, 100, 100, 0.05);
+  selected-text-color:    #FFFFFF;
+  unselected-text-color:  #FFFFFF;
+}
+
+#window {
+  width:              100%;
+  height:             100%;
+  x-offset:           0%;
+  y-offset:           0%;
+  padding:            @content-position;
+  background-color:   @window-bg-color;
+  children:           [ inputbar, horibox ];
+}
+
+#inputbar {
+  children: [ prompt ];
+  margin: @title-margins;
+  background-color: transparent;
+}
+
+prompt {
+  font: @text-font;
+  text-color: @selected-text-color;
+  background-color: transparent;
+}
+
+#horibox {
+  background-color: transparent;
+  children: [ listview ];
+}
+
+#listview {
+  layout: horizontal;
+  background-color: transparent;
+  spacing: @space-between-options;
+  lines: 5;
+}
+
+#element {
+  font:               @icon-font;
+  text-color:         @unselected-text-color;
+  padding:            @option-inset-padding;
+  border-radius:      50%;
+  background-color:   @unselected-bg-color;
+}
+
+#element.selected {
+  text-color:         @selected-text-color;
+  background-color:   @selected-bg-color;
+}
