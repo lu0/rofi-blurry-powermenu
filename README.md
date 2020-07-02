@@ -1,16 +1,16 @@
-#  Blurry Fullscreen Powermenu for Rofi
+# Blurry Fullscreen Powermenu for Rofi
 
-![Screenshot of the theme](preview.png "Preview")
+![Preview while on desktop](preview.png)
+![Preview while busy](preview_busy.png)
 
 A simple yet beautiful powermenu for [Rofi](https://github.com/davatorium/rofi), includes a "fake" blur effect to the current screen as some Desktop Environments don't support native blur.
 
-### Installation
+## Installation
 ```zsh
 
 # Install dependencies
 sudo apt-get install rofi
 sudo apt-get install imagemagick
-sudo apt-get install dconf
 
 # Clone this repo
 mkdir -p ~/.config/rofi && cd ~/.config/rofi
@@ -23,11 +23,11 @@ cp -r fonts/* /usr/share/fonts/
 cd && rm -rf ~/.config/rofi-blurry-powermenu 
 ```
 
-### Usage
+## Usage
 Run the script or assign it to a keybinding.
 ```zsh
 ~/.config/rofi/powermenu.sh
 ```
 
-### Notes
+## Notes
 Tested under Rofi 1.5.4 and ImageMagick 8:6.9.10.23 :)
