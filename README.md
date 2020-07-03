@@ -1,9 +1,9 @@
-# Blurry Fullscreen Powermenu for Rofi
+# Rori Blurry Powermenu 
 
 ![Preview while on desktop](preview.png)
 ![Preview while busy](preview_busy.png)
 
-A simple yet beautiful powermenu for [Rofi](https://github.com/davatorium/rofi), includes a "fake" blur effect to the current screen as some Desktop Environments don't support native blur.
+A simple yet beautiful powermenu for [Rofi](https://github.com/davatorium/rofi), includes a "fake" blur effect of the current screen.
 
 ## Installation
 ```zsh
@@ -20,7 +20,7 @@ git clone https://github.com/lu0/rofi-blurry-powermenu.git
 cd rofi-blurry-powermenu
 cp -r powermenu.sh fullscreen_powermenu.rasi ~/.config/rofi
 sudo cp -r fonts/* /usr/share/fonts/
-cd && rm -rf ~/.config/rofi-blurry-powermenu 
+cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
 ```
 
 ## Usage
@@ -30,5 +30,5 @@ Run the script or assign it to a keybinding.
 ```
 
 ## Notes
-Tested under Linux Mint Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
+Tested under Linux Mint 20 Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
 Tested under Rofi 1.5.4 and ImageMagick 8:6.9.10.23 :)
