@@ -11,10 +11,10 @@
 * {
   text-font:              "WeblySleek UI Normal 60";
   icon-font:              "feather 70";
-  content-position:       300px 400px;      
-  title-margins:          50px 200px;
-  space-between-options:  50px;
-  option-inset-padding:   40px 45px 30px -85px;
+  content-position:       27.7% 20.8%;      
+  title-margins:          4.62% 10.41%;
+  space-between-options:  2.6%;
+  option-inset-padding:   3.7% 2.35% 2.8% -4.42%;
 
   window-bg-color:        rgba(15, 15, 15, 0.7);
   title-text-color:       rgba(141, 145, 148, 1);
