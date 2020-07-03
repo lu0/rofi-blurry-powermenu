@@ -10,6 +10,7 @@ A simple yet beautiful powermenu for [Rofi](https://github.com/davatorium/rofi),
 
 # Install dependencies
 sudo apt-get install rofi
+sudo apt-get install scrot 
 sudo apt-get install imagemagick
 
 # Clone this repo
