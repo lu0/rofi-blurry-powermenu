@@ -1,4 +1,4 @@
-# Rori Blurry Powermenu 
+# Rofi Blurry Powermenu 
 
 ![Preview while on desktop](preview.png)
 ![Preview while busy](preview_busy.png)
