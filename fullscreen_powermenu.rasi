@@ -9,12 +9,10 @@
 */
 
 * {
-  text-font:              "WeblySleek UI Normal 60";
-  icon-font:              "feather 70";
+  title-margins:          4.62% 9.5%;               /* Modify 2nd % if needed */
   content-position:       27.7% 20.8%;      
-  title-margins:          4.62% 10.41%;
-  space-between-options:  2.6%;
-  option-inset-padding:   3.7% 2.35% 2.8% -4.42%;
+  space-between-options:  2.5%;
+  option-inset-padding:   4.1% 2.6% 2.5% -4.1%;
 
   window-bg-color:        rgba(15, 15, 15, 0.7);
   title-text-color:       rgba(141, 145, 148, 1);
@@ -22,6 +20,7 @@
   unselected-bg-color:    rgba(100, 100, 100, 0.05);
   selected-text-color:    #FFFFFF;
   unselected-text-color:  #FFFFFF;
+
 }
 
 #window {
@@ -41,7 +40,6 @@
 }
 
 prompt {
-  font: @text-font;
   text-color: @selected-text-color;
   background-color: transparent;
 }
@@ -59,7 +57,6 @@ prompt {
 }
 
 #element {
-  font:               @icon-font;
   text-color:         @unselected-text-color;
   padding:            @option-inset-padding;
   border-radius:      50%;
