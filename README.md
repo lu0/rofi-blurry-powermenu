@@ -30,5 +30,5 @@ Run the script or assign it to a keybinding.
 ```
 
 ## Notes
-Tested under Linux Mint 20 Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
+Should work on all resolutions. Tested under Linux Mint 20 Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
 Tested under Rofi 1.5.4 and ImageMagick 8:6.9.10.23 :)
