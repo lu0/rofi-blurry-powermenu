@@ -49,11 +49,11 @@ case $selected in
         ;;
 
     $logout)
-        gnome-session-quit --no-prompt || xfce4-session-logout --logout
+        cinnamon-session-quit --logout --no-prompt || ( xfce4-session-logout --logout || mate-session-save --logout )
         ;;
 
     $lock)
-        cinnamon-screensaver-command --lock || xflock4
+        cinnamon-screensaver-command --lock || ( xflock4 || mate-screensaver-command -l )
         ;;
-    
+
 esac
