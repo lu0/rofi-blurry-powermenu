@@ -31,7 +31,7 @@ FONTSIZE=$(echo "$WIDTH/$DEFAULT_WIDTH*$DEFAULT_FONTSIZE" | bc -l)
 selected="$(echo -e "$options" | 
             rofi -show-icons -theme fullscreen_powermenu.rasi \
                  -fake-background ${SS_PATH}.png -fake-transparency \
-                 -font "WeblySleek UI Normal $FONTSIZE" \
+                 -font "WeblySleek UI Light, $FONTSIZE" \
                  -p "See you later, ${LOGNAME^}!" -dmenu -selected-row 4)"
 
 case $selected in
