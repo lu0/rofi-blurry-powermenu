@@ -3,15 +3,12 @@
 ![Preview while on desktop](preview.png)
 ![Preview while busy](preview_busy.png)
 
-A simple yet beautiful powermenu for [Rofi](https://github.com/davatorium/rofi), includes a "fake" blur effect of the current screen.
+A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi). Includes a "fake" blur effect for the current screen.
 
 ## Installation
 ```zsh
-
 # Install dependencies
-sudo apt-get install rofi
-sudo apt-get install scrot 
-sudo apt-get install imagemagick
+sudo apt-get install rofi scrot imagemagick -y
 
 # Clone this repo
 mkdir -p ~/.config/rofi && cd ~/.config/rofi
@@ -25,11 +22,35 @@ cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu
 ```
 
 ## Usage
-Run the script or assign it to a keybinding.
+
+### Cinnamon, XFCE and MATE
+Run the script or create a keybinding.
 ```zsh
 ~/.config/rofi/powermenu.sh
 ```
 
+### Other Destop Environments
+Depending on your system, there might be specific DE commands to lock your screen and log out from a session. You may have to change the commands inside the ```case``` statement of the script for the menu to work on your system.
+
+```zsh
+case $selected in
+    $shutdown)
+        systemctl poweroff     
+        ;;
+    $reboot)
+        systemctl reboot              
+        ;;
+    $sleep)
+        systemctl suspend   
+        ;;
+    $logout)
+        # DE specific
+        ;;
+    $lock)
+        # DE specific
+        ;;
+esac
+```
+
 ## Notes
-Should work on all resolutions. Tested under Linux Mint 20 Cinnamon, specific commands to lock the screen, suspend and logout may change according to your system.
-Tested under Rofi 1.5.4 and ImageMagick 8:6.9.10.23 :)
+Tested under Rofi 1.5.4, Scrot 1.2 and ImageMagick 8:6.9.10.23 :)

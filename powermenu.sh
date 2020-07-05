@@ -37,11 +37,11 @@ selected="$(echo -e "$options" |
 case $selected in
 
     $shutdown)
-        shutdown -P now
+        systemctl poweroff
         ;;
 
     $reboot)
-        reboot
+        systemctl reboot
         ;;
 
     $sleep)
