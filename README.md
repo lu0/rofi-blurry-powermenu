@@ -16,14 +16,27 @@ git clone https://github.com/lu0/rofi-blurry-powermenu.git
 
 # Copy only the neccesary files
 cd rofi-blurry-powermenu
-cp -r powermenu.sh fullscreen_powermenu.rasi ~/.config/rofi
+cp -r powermenu.sh fullscreen_powermenu.rasi applet.js ~/.config/rofi
 sudo cp -r fonts/* /usr/share/fonts/
 cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
 ```
 
 ## Usage
 
-### Cinnamon, XFCE and MATE
+### Cinnamon
+Link it to the buttons of the Cinnamon Menu:
+```zsh
+cd ~/.config/rofi/
+sudo rm -rf /usr/share/cinnamon/applets/menu@cinnamon.org/applet.js
+sudo cp -r applet.js /usr/share/cinnamon/applets/menu@cinnamon.org/
+sudo cp -r powermenu.sh /usr/bin/
+```
+Or create a keybinding for the following command:
+```zsh
+~/.config/rofi/powermenu.sh
+```
+
+### XFCE and MATE
 Run the script or create a keybinding.
 ```zsh
 ~/.config/rofi/powermenu.sh

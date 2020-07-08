@@ -28,11 +28,22 @@ WIDTH=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
 DEFAULT_FONTSIZE=60
 FONTSIZE=$(echo "$WIDTH/$DEFAULT_WIDTH*$DEFAULT_FONTSIZE" | bc -l)
 
+while getopts "lp" OPT; do
+    case "$OPT" in
+        p) PRESELECTION=0 ;;
+        l) PRESELECTION=3 ;;
+        *) PRESELECTION=4 ;;
+    esac
+done
+if (( $OPTIND == 1 )); then
+   PRESELECTION=4
+fi
+
 selected="$(echo -e "$options" | 
             rofi -show-icons -theme fullscreen_powermenu.rasi \
                  -fake-background ${SS_PATH}.png -fake-transparency \
                  -font "WeblySleek UI Light, $FONTSIZE" \
-                 -p "See you later, ${LOGNAME^}!" -dmenu -selected-row 4)"
+                 -p "See you later, ${LOGNAME^}!" -dmenu -selected-row ${PRESELECTION})"
 
 case $selected in
 
