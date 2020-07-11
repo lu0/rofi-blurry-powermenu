@@ -1,11 +1,7 @@
 #!/bin/bash
 
 # Install dependencies
-sudo apt-get install git rofi scrot imagemagick -y
-
-# Clone repo
-mkdir -p ~/.config/rofi && cd ~/.config/rofi
-git clone https://github.com/lu0/rofi-blurry-powermenu.git
+sudo apt-get install rofi scrot imagemagick -y
 
 # Copy only the neccesary files
 cd rofi-blurry-powermenu
