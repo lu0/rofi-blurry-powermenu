@@ -6,25 +6,43 @@
 A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi). Includes a "fake" blur effect for the current screen.
 
 ## Installation
-```zsh
-# Install dependencies
-sudo apt-get install rofi scrot imagemagick -y
 
-# Clone this repo
+```zsh
+# Clone repo
 mkdir -p ~/.config/rofi && cd ~/.config/rofi
 git clone https://github.com/lu0/rofi-blurry-powermenu.git
 
+<<<<<<< HEAD
 # Copy only the neccesary files
 cd rofi-blurry-powermenu
 cp -r powermenu.sh fullscreen_powermenu.rasi ~/.config/rofi
 sudo cp -r fonts/* /usr/share/fonts/
 
+=======
+# Install dependencies and copy files
+./rofi-blurry-powermenu/install-powermenu.sh
+>>>>>>> cinnamon/applet
 cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
 ```
 
 ## Usage
 
+<<<<<<< HEAD
 ### Cinnamon, XFCE and MATE
+=======
+### Cinnamon
+Link it to the buttons of the Cinnamon Menu:
+```zsh
+cd ~/.config/rofi/
+./replace-applet.sh
+```
+Or create a keybinding for the following command:
+```zsh
+~/.config/rofi/powermenu.sh
+```
+
+### XFCE and MATE
+>>>>>>> cinnamon/applet
 Run the script or create a keybinding.
 ```zsh
 ~/.config/rofi/powermenu.sh

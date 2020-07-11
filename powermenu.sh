@@ -40,7 +40,7 @@ if (( $OPTIND == 1 )); then
 fi
 
 selected="$(echo -e "$options" | 
-            rofi -show-icons -theme fullscreen_powermenu.rasi \
+            rofi -show-icons -theme powermenu_theme.rasi \
                  -fake-background ${SS_PATH}.png -fake-transparency \
                  -font "WeblySleek UI Light, $FONTSIZE" \
                  -p "See you later, ${LOGNAME^}!" -dmenu -selected-row ${PRESELECTION})"
