@@ -13,7 +13,7 @@ mkdir -p ~/.config/rofi && cd ~/.config/rofi
 git clone https://github.com/lu0/rofi-blurry-powermenu.git
 
 # Install dependencies and copy files
-. ./rofi-blurry-powermenu/install-powermenu.sh
+./rofi-blurry-powermenu/install-powermenu.sh
 cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
 ```
 
@@ -23,7 +23,7 @@ cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu
 Link it to the buttons of the Cinnamon Menu:
 ```zsh
 cd ~/.config/rofi/
-sudo ./replace-applet.sh
+./replace-applet.sh
 ```
 Or create a keybinding for the following command:
 ```zsh
