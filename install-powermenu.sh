@@ -4,10 +4,10 @@
 sudo apt-get install rofi scrot imagemagick -y
 
 # Copy only the neccesary files
-cd rofi-blurry-powermenu
-cp -r powermenu.sh powermenu_theme.rasi ~/.config/rofi
-sudo cp -r fonts/* /usr/share/fonts/
+cp -r rofi-blurry-powermenu/powermenu.sh ~/.config/rofi
+cp -r rofi-blurry-powermenu/powermenu_theme.rasi ~/.config/rofi
+sudo cp -r rofi-blurry-powermenu/fonts/* /usr/share/fonts/
 
 # If your using Cinnamon you'll also need:
-cd mod-applet
-cp -r applet.js replace-applet.sh ~/.config/rofi
+cp -r replace-applet.sh ~/.config/rofi
+cp -r mod-applet/applet.js mod-applet/settings-schema.json ~/.config/rofi
