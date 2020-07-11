@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Replace applet files with the the modified ones
-cp -rf applet.js settings-scheme.json /usr/share/cinnamon/applets/menu@cinnamon.org/
+sudo cp -rf applet.js settings-schema.json /usr/share/cinnamon/applets/menu@cinnamon.org/
 
 # Copy rofi files
-mkdir -p /usr/bin/
-cp -r powermenu.sh powermenu_theme.rasi /usr/bin/
+sudo mkdir -p /usr/bin/
+sudo cp -r powermenu.sh powermenu_theme.rasi /usr/bin/
 
 # Restart the menu applet
 # From: gist.github.com/hyOzd/35e913db620b3ba086fb
