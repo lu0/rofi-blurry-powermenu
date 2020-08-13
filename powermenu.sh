@@ -24,7 +24,7 @@ convert "${SS_PATH}.jpg" "${SS_PATH}.png"                           # rofi reads
 
 # Font size according to screen dimensions
 DEFAULT_WIDTH=1920
-WIDTH=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
+WIDTH=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1 )
 DEFAULT_FONTSIZE=60
 FONTSIZE=$(echo "$WIDTH/$DEFAULT_WIDTH*$DEFAULT_FONTSIZE" | bc -l)
 
