@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace applet files with the the modified ones
-sudo cp -rf applet.js settings-schema.json /usr/share/cinnamon/applets/menu@cinnamon.org/
+sudo cp -rf mod-applet/applet.js mod-applet/settings-schema.json /usr/share/cinnamon/applets/menu@cinnamon.org/
 
 # Copy rofi files
 sudo mkdir -p /usr/bin/
