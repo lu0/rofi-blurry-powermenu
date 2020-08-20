@@ -29,6 +29,14 @@ Or create a keybinding for the following command:
 ```zsh
 ~/.config/rofi/powermenu.sh
 ```
+If you want to remove the powermenu from the Cinnamon Menu, run
+```zsh
+sudo xed /usr/share/cinnamon/applets/menu@cinnamon.org/applet.js
+```
+Replace all the code with the [default code](https://raw.githubusercontent.com/linuxmint/cinnamon/master/files/usr/share/cinnamon/applets/menu%40cinnamon.org/applet.js), and restart the applet by running
+```zsh
+dbus-send --session --dest=org.Cinnamon.LookingGlass --type=method_call /org/Cinnamon/LookingGlass org.Cinnamon.LookingGlass.ReloadExtension string:'menu@cinnamon.org' string:'APPLET'
+```
 
 ### XFCE and MATE
 Run the script or create a keybinding.
