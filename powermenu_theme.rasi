@@ -7,19 +7,30 @@
  *
 */
 
+// Rofi configuration, do not change!
+configuration {
+    show-icons: true;
+    fake-transparency: true;
+}
+
+// Colors, modify them to your needs!
 * {
-  title-margins:          4.62% 9.5%;               /* Modify 2nd % if needed */
-  content-position:       27.7% 20.8%;      
-  space-between-options:  2.5%;
-  option-inset-padding:   4.1% 2.6% 2.5% -4.1%;
+    window-bg-color:        rgba(15, 15, 15, 0.7);
+    title-text-color:       rgba(255, 255, 255, 1);
+    selected-bg-color:      rgba(100, 100, 100, 0.5);
+    unselected-bg-color:    rgba(100, 100, 100, 0.1);
+    selected-text-color:    rgba(255, 255, 255, 1);
+    unselected-text-color:  rgba(255, 255, 255, 0.5);
+}
 
-  window-bg-color:        rgba(15, 15, 15, 0.7);
-  title-text-color:       rgba(255, 255, 255, 1);
-  selected-bg-color:      rgba(100, 100, 100, 0.5);
-  unselected-bg-color:    rgba(100, 100, 100, 0.1);
-  selected-text-color:    rgba(255, 255, 255, 1);
-  unselected-text-color:  rgba(255, 255, 255, 0.5);
-
+// Positions and margins, most likely not going to change
+* {
+    title-margins:          4.62% 9.5%;
+    content-position:       27.7% 20.8%;      
+    space-between-options:  2.5%;
+    option-inset-padding:   4.1% 2.6% 2.5% -4.1%;
+    option-radius:          50%;
+    number-of-options:      5;
 }
 
 #window {
@@ -52,13 +63,13 @@ prompt {
   layout: horizontal;
   background-color: transparent;
   spacing: @space-between-options;
-  lines: 5;
+  lines: @number-of-options;
 }
 
 #element {
   text-color:         @unselected-text-color;
   padding:            @option-inset-padding;
-  border-radius:      50%;
+  border-radius:      @option-radius;
   background-color:   @unselected-bg-color;
 }
 
