@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 #
-# Powermenu for Rofi
+# Powermenu made with Rofi
 # 
-# Author : Lucero Alvarado
-# Github : @lu0
-#
+# https://github.com/lu0
+# 
 
 # Options as characters
 # Copied from decoded unicodes (private use of "Feather" font)
@@ -26,7 +25,7 @@ convert "${SS_PATH}.jpg" "${SS_PATH}.png"                           # rofi reads
 DEFAULT_WIDTH=1920
 WIDTH=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1 )
 DEFAULT_FONTSIZE=60
-FONTSIZE=$(echo "$WIDTH/$DEFAULT_WIDTH*$DEFAULT_FONTSIZE" | bc -l)
+FONTSIZE=$(echo "$WIDTH*$DEFAULT_FONTSIZE/$DEFAULT_WIDTH" | bc -l)
 
 while getopts "lp" OPT; do
     case "$OPT" in
