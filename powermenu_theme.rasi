@@ -14,11 +14,11 @@
   option-inset-padding:   4.1% 2.6% 2.5% -4.1%;
 
   window-bg-color:        rgba(15, 15, 15, 0.7);
-  title-text-color:       rgba(141, 145, 148, 1);
+  title-text-color:       rgba(255, 255, 255, 1);
   selected-bg-color:      rgba(100, 100, 100, 0.4);
   unselected-bg-color:    rgba(100, 100, 100, 0.05);
-  selected-text-color:    #FFFFFF;
-  unselected-text-color:  #FFFFFF;
+  selected-text-color:    rgba(255, 255, 255, 1);
+  unselected-text-color:  rgba(255, 255, 255, 1);
 
 }
 
@@ -39,7 +39,7 @@
 }
 
 prompt {
-  text-color: @selected-text-color;
+  text-color: @title-text-color;
   background-color: transparent;
 }
 
