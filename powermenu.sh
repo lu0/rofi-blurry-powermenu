@@ -27,12 +27,21 @@ y="${DISPLAY_INFO[y]}"
 width=${DISPLAY_INFO["width"]}
 height="${DISPLAY_INFO[height]}"
 
-# Fake blurred background
-SS_PATH="$HOME/.config/rofi/screenshot"
-rm -f "${SS_PATH}.jpg"
-scrot -a $x,$y,$width,$height "${SS_PATH}.jpg"                 # screenshot
-convert "${SS_PATH}.jpg" -blur 0x10 -auto-level "${SS_PATH}.jpg"    # blur
-convert "${SS_PATH}.jpg" "${SS_PATH}.png"                           # rofi reads png images
+# Prepare screenshot path
+config_dir=${HOME}/.config/rofi
+mkdir -p "${config_dir}"
+SS_PATH=${config_dir}/screenshot
+rm -f "${SS_PATH}.jpg" && rm -f "${SS_PATH}.png"
+
+# Take screenshot
+scrot -a $x,$y,$width,$height "${SS_PATH}.jpg"
+
+# Simulate blur effect
+convert "${SS_PATH}.jpg" -scale 2.5% -resize 4000% "${SS_PATH}.jpg"
+
+# Rofi reads png images.
+# I found faster to first "blur" the image and then convert it to png
+convert "${SS_PATH}.jpg" "${SS_PATH}.png"
 
 # Compute font size based on display dimensions
 DEFAULT_WIDTH=1920
