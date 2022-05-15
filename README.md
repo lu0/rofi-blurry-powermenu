@@ -10,7 +10,7 @@ A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/
 ```zsh
 # Clone repo
 mkdir -p ~/.config/rofi && cd ~/.config/rofi
-git clone https://github.com/lu0/rofi-blurry-powermenu.git
+git clone --recurse-submodules https://github.com/lu0/rofi-blurry-powermenu.git
 
 # Install dependencies and copy files
 ./rofi-blurry-powermenu/install-powermenu.sh
