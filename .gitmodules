@@ -1,0 +1,3 @@
+[submodule "current-x-display-info"]
+	path = current-x-display-info
+	url = git@github.com:lu0/current-x-display-info.git

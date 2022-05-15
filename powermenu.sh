@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
-# Powermenu for Rofi
+# Powermenu made with Rofi
 # 
-# Author : Lucero Alvarado
-# Github : @lu0
-#
+# https://github.com/lu0
+# 
 
 # Options as characters
 # Copied from decoded unicodes (private use of "Feather" font)
@@ -16,17 +15,30 @@ logout="";          # "\uE991"
 lock="";            # "\uE98F"
 options="$shutdown\n$reboot\n$sleep\n$logout\n$lock"
 
+# Get dimensions of the current display by using module `display_info`
+script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
+script_abs_dir_path=$(dirname "${script_abs_file_path}")
+source "${script_abs_dir_path}/current-x-display-info/display_info.sh"
+
+display_info::load
+
+x="${DISPLAY_INFO[x]}"
+y="${DISPLAY_INFO[y]}"
+width=${DISPLAY_INFO["width"]}
+height="${DISPLAY_INFO[height]}"
+
 # Fake blurred background
 SS_PATH="$HOME/.config/rofi/screenshot"
-rm -f "${SS_PATH}.jpg" && scrot -z "${SS_PATH}.jpg"                 # screenshot
+rm -f "${SS_PATH}.jpg"
+scrot -a $x,$y,$width,$height "${SS_PATH}.jpg"                 # screenshot
 convert "${SS_PATH}.jpg" -blur 0x10 -auto-level "${SS_PATH}.jpg"    # blur
 convert "${SS_PATH}.jpg" "${SS_PATH}.png"                           # rofi reads png images
 
-# Font size according to screen dimensions
+# Compute font size based on display dimensions
 DEFAULT_WIDTH=1920
-WIDTH=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1 )
 DEFAULT_FONTSIZE=60
-FONTSIZE=$(echo "$WIDTH/$DEFAULT_WIDTH*$DEFAULT_FONTSIZE" | bc -l)
+FONTSIZE=$(echo "$width*$DEFAULT_FONTSIZE/$DEFAULT_WIDTH" | bc)
+
 
 while getopts "lp" OPT; do
     case "$OPT" in
