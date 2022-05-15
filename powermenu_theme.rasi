@@ -15,10 +15,10 @@
 
   window-bg-color:        rgba(15, 15, 15, 0.7);
   title-text-color:       rgba(255, 255, 255, 1);
-  selected-bg-color:      rgba(100, 100, 100, 0.4);
-  unselected-bg-color:    rgba(100, 100, 100, 0.05);
+  selected-bg-color:      rgba(100, 100, 100, 0.5);
+  unselected-bg-color:    rgba(100, 100, 100, 0.1);
   selected-text-color:    rgba(255, 255, 255, 1);
-  unselected-text-color:  rgba(255, 255, 255, 1);
+  unselected-text-color:  rgba(255, 255, 255, 0.5);
 
 }
 
