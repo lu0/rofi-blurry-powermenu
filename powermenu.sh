@@ -23,9 +23,19 @@ convert "${SS_PATH}.jpg" "${SS_PATH}.png"                           # rofi reads
 
 # Font size according to screen dimensions
 DEFAULT_WIDTH=1920
-WIDTH=$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -d 'x' -f 1 )
 DEFAULT_FONTSIZE=60
-FONTSIZE=$(echo "$WIDTH*$DEFAULT_FONTSIZE/$DEFAULT_WIDTH" | bc -l)
+
+# Get width of the current display using module `display_info`
+script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
+script_abs_dir_path=$(dirname "${script_abs_file_path}")
+source "${script_abs_dir_path}/current-x-display-info/display_info.sh"
+
+display_info::load
+
+WIDTH=${DISPLAY_INFO["width"]}
+
+FONTSIZE=$(echo "$WIDTH*$DEFAULT_FONTSIZE/$DEFAULT_WIDTH" | bc)
+
 
 while getopts "lp" OPT; do
     case "$OPT" in
