@@ -28,9 +28,9 @@ width=${DISPLAY_INFO["width"]}
 height="${DISPLAY_INFO[height]}"
 
 # Prepare screenshot path
-config_dir=${HOME}/.config/rofi
+config_dir=/tmp
 mkdir -p "${config_dir}"
-SS_PATH=${config_dir}/screenshot
+SS_PATH=${config_dir}/rofi-blurry-powermenu-screenshot
 rm -f "${SS_PATH}.jpg" && rm -f "${SS_PATH}.png"
 
 # Take screenshot
