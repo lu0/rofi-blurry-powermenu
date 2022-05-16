@@ -61,5 +61,13 @@ case $selected in
 esac
 ```
 
-## Notes
-Tested under Rofi 1.5.4, Scrot 1.2 and ImageMagick 8:6.9.10.23 :)
+## Acknowledgments
+This powermenu uses open source fonts
+[Webly SleekUI](https://fonts2u.com/weblysleek-ui-semilight.font)
+and
+[Feather](https://github.com/feathericons/feather).
+
+I compiled Feather using [my modified fork](https://github.com/lu0/svg-to-ttf)
+of [rfbezerra's `svg-to-ttf` utility](https://github.com/rfbezerra/svg-to-ttf)
+(which uses [Fontcustom](https://github.com/FontCustom/fontcustom))
+to set the start of the character map.

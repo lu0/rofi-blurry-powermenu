@@ -6,14 +6,14 @@
 # https://github.com/lu0
 # 
 
-# Options as characters
-# Copied from decoded unicodes (private use of "Feather" font)
-shutdown="";        # "\uE9C0"
-reboot="";          # "\uE9C4"
-sleep="";           # "\uE9A3"
-logout="";          # "\uE991"
-lock="";            # "\uE98F"
-options="$shutdown\n$reboot\n$sleep\n$logout\n$lock"
+# Options as unicode characters of
+# the custom-compiled version of Feather icons
+poweroff=$(echo -ne "\uE9DA");
+reboot=$(echo -ne "\uE9DE");
+sleep=$(echo -ne "\uE9BD");
+logout=$(echo -ne "\uE9AB");
+lock=$(echo -ne "\uE9A9");
+options="$poweroff\n$reboot\n$sleep\n$logout\n$lock"
 
 # Get dimensions of the current display by using module `display_info`
 script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
