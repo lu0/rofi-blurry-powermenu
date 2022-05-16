@@ -19,26 +19,7 @@ cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu
 
 ## Usage
 
-### Cinnamon
-Link it to the buttons of the Cinnamon Menu:
-```zsh
-cd ~/.config/rofi/
-./replace-applet.sh
-```
-Or create a keybinding for the following command:
-```zsh
-~/.config/rofi/powermenu.sh
-```
-If you want to remove the powermenu from the Cinnamon Menu, run
-```zsh
-sudo xed /usr/share/cinnamon/applets/menu@cinnamon.org/applet.js
-```
-Replace all the code with the [default code](https://raw.githubusercontent.com/linuxmint/cinnamon/master/files/usr/share/cinnamon/applets/menu%40cinnamon.org/applet.js), and restart the applet by running
-```zsh
-dbus-send --session --dest=org.Cinnamon.LookingGlass --type=method_call /org/Cinnamon/LookingGlass org.Cinnamon.LookingGlass.ReloadExtension string:'menu@cinnamon.org' string:'APPLET'
-```
-
-### XFCE and MATE
+### Cinnamon, XFCE and Mate
 Run the script or create a keybinding.
 ```zsh
 ~/.config/rofi/powermenu.sh
