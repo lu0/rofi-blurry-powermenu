@@ -15,77 +15,69 @@ logout=$(echo -ne "\uE9AB");
 lock=$(echo -ne "\uE9A9");
 options="$poweroff\n$reboot\n$sleep\n$logout\n$lock"
 
+# Prepare path for the screenshot
+config_dir=/tmp
+mkdir -p "${config_dir}"
+screenshot=${config_dir}/rofi-blurry-powermenu-screenshot
+rm -f "${screenshot}.jpg" && rm -f "${screenshot}.png"
+
 # Get dimensions of the current display by using module `display_info`
 script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
 script_abs_dir_path=$(dirname "${script_abs_file_path}")
 source "${script_abs_dir_path}/current-x-display-info/display_info.sh"
 
 display_info::load
-
 x="${DISPLAY_INFO[x]}"
 y="${DISPLAY_INFO[y]}"
 width=${DISPLAY_INFO["width"]}
 height="${DISPLAY_INFO[height]}"
 
-# Prepare screenshot path
-config_dir=/tmp
-mkdir -p "${config_dir}"
-SS_PATH=${config_dir}/rofi-blurry-powermenu-screenshot
-rm -f "${SS_PATH}.jpg" && rm -f "${SS_PATH}.png"
-
 # Take screenshot
-scrot -a $x,$y,$width,$height "${SS_PATH}.jpg"
+scrot -a "${x},${y},${width},${height}" "${screenshot}.jpg"
 
 # Simulate blur effect
-convert "${SS_PATH}.jpg" -scale 2.5% -resize 4000% "${SS_PATH}.jpg"
+convert "${screenshot}.jpg" -scale 2.5% -resize 4000% "${screenshot}.jpg"
 
 # Rofi reads png images.
-# I found faster to first "blur" the image and then convert it to png
-convert "${SS_PATH}.jpg" "${SS_PATH}.png"
+# I found it faster to first "blur" the image and then convert it to png
+convert "${screenshot}.jpg" "${screenshot}.png"
 
 # Compute font size based on display dimensions
-DEFAULT_WIDTH=1920
-DEFAULT_FONTSIZE=60
-FONTSIZE=$(echo "$width*$DEFAULT_FONTSIZE/$DEFAULT_WIDTH" | bc)
-
+default_width=1920
+default_font_size=60
+fontsize=$(echo "$width*$default_font_size/$default_width" | bc)
 
 while getopts "lp" OPT; do
     case "$OPT" in
-        p) PRESELECTION=0 ;;
-        l) PRESELECTION=3 ;;
-        *) PRESELECTION=4 ;;
+        p) preselection=0 ;;
+        l) preselection=3 ;;
+        *) preselection=4 ;;
     esac
 done
 if (( $OPTIND == 1 )); then
-   PRESELECTION=4
+   preselection=4
 fi
 
 selected="$(echo -e "$options" | 
             rofi -theme ${script_abs_dir_path}/powermenu_theme.rasi \
-                 -fake-background ${SS_PATH}.png \
-                 -font "WeblySleek UI Light, $FONTSIZE" \
-                 -p "See you later, ${LOGNAME^}!" -dmenu -selected-row ${PRESELECTION})"
+                 -fake-background ${screenshot}.png \
+                 -font "WeblySleek UI Light, $fontsize" \
+                 -p "See you later, ${USER^}!" -dmenu -selected-row ${preselection})"
 
 case $selected in
-
-    $shutdown)
+    "${poweroff}")
         systemctl poweroff
         ;;
-
-    $reboot)
+    "${reboot}")
         systemctl reboot
         ;;
-
-    $sleep)
+    "${sleep}")
         systemctl suspend
         ;;
-
-    $logout)
+    "${logout}")
         cinnamon-session-quit --logout --no-prompt || ( xfce4-session-logout --logout || mate-session-save --logout )
         ;;
-
-    $lock)
+    "${lock}")
         cinnamon-screensaver-command --lock || ( xflock4 || mate-screensaver-command -l )
         ;;
-
 esac
