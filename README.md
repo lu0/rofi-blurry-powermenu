@@ -3,7 +3,14 @@
 ![Preview while on desktop](preview.png)
 ![Preview while busy](preview_busy.png)
 
-A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi). Includes a "fake" blur effect for the current screen.
+A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi), simulates a blur effect in the current screen.
+
+- [Rofi Blurry Powermenu](#rofi-blurry-powermenu)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [From CLI on Cinnamon, XFCE and Mate](#from-cli-on-cinnamon-xfce-and-mate)
+    - [Other Desktop Environments](#other-desktop-environments)
+  - [Acknowledgments](#acknowledgments)
 
 ## Installation
 
@@ -33,29 +40,36 @@ sudo cp fonts/* /usr/share/fonts/ && fc-cache -f
 
 ### From CLI on Cinnamon, XFCE and Mate
 
-Trigger the powermenu
+Trigger the powermenu, the `lock` option is highlighted by default.
 ```bash
 blurry-powermenu
 ```
 
-### Other Destop Environments
-Depending on your system, there might be specific DE commands to lock your screen and log out from a session. You may have to change the commands inside the ```case``` statement of the script for the menu to work on your system.
+See the entire list of options
+```bash
+blurry-powermenu --help
+```
+
+### Other Desktop Environments
+Depending on your system, there might be specific DE commands to lock your
+screen and log out from the session. You may have to change the commands inside
+the ```case``` statement of the script `powermenu.sh` for it to work on your system.
 
 ```zsh
 case $selected in
-    $shutdown)
-        systemctl poweroff     
+    "${poweroff}")
+        systemctl poweroff
         ;;
-    $reboot)
-        systemctl reboot              
+    "${reboot}")
+        systemctl reboot
         ;;
-    $sleep)
-        systemctl suspend   
+    "${sleep}")
+        systemctl suspend
         ;;
-    $logout)
+    "${logout}")
         # DE specific
         ;;
-    $lock)
+    "${lock}")
         # DE specific
         ;;
 esac

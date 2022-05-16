@@ -2,9 +2,22 @@
 
 #
 # Powermenu made with Rofi
-# 
+#
 # https://github.com/lu0
-# 
+#
+
+show_usage() {
+    echo -e "\nTrigger a blurry powermenu made with rofi."
+    echo -e "\nUSAGE:"
+    echo -e "   blurry-powermenu [OPTIONS]"
+    echo -e "\nOPTIONS:"
+    echo -e "       -h | --help     Show this manual.\n"
+    echo -e "       -p | --poweroff   Highlight 'poweroff' option."
+    echo -e "       -r | --reboot     Highlight 'reboot' option."
+    echo -e "       -s | --sleep      Highlight 'sleep' option."
+    echo -e "       -l | --logout     Highlight 'logout' option."
+    echo -e "       -k | --lock       Highlight 'lock' option (default).\n"
+}
 
 # Options as unicode characters of
 # the custom-compiled version of Feather icons
@@ -14,6 +27,20 @@ sleep=$(echo -ne "\uE9BD");
 logout=$(echo -ne "\uE9AB");
 lock=$(echo -ne "\uE9A9");
 options="$poweroff\n$reboot\n$sleep\n$logout\n$lock"
+
+# Parse CLI selection, defaults to logout
+preselection=4
+while getopts prslkh-: OPT; do
+    [ "${OPT}" = "-" ] && OPT=${OPTARG}
+    case "$OPT" in
+        p | poweroff)   preselection=0 ;;
+        r | reboot)     preselection=1 ;;
+        s | sleep)      preselection=2 ;;
+        l | logout)     preselection=3 ;;
+        k | lock)       preselection=4 ;;
+        *) show_usage; exit 1 ;;
+    esac
+done
 
 # Prepare path for the screenshot
 config_dir=/tmp
@@ -47,18 +74,7 @@ default_width=1920
 default_font_size=60
 fontsize=$(echo "$width*$default_font_size/$default_width" | bc)
 
-while getopts "lp" OPT; do
-    case "$OPT" in
-        p) preselection=0 ;;
-        l) preselection=3 ;;
-        *) preselection=4 ;;
-    esac
-done
-if (( $OPTIND == 1 )); then
-   preselection=4
-fi
-
-selected="$(echo -e "$options" | 
+selected="$(echo -e "$options" |
             rofi -theme ${script_abs_dir_path}/powermenu_theme.rasi \
                  -fake-background ${screenshot}.png \
                  -font "WeblySleek UI Light, $fontsize" \
