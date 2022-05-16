@@ -7,22 +7,35 @@ A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/
 
 ## Installation
 
-```zsh
-# Clone repo
-mkdir -p ~/.config/rofi && cd ~/.config/rofi
-git clone --recurse-submodules https://github.com/lu0/rofi-blurry-powermenu.git
-
-# Install dependencies and copy files
-./rofi-blurry-powermenu/install-powermenu.sh
-cd && rm -rf ~/.config/rofi/rofi-blurry-powermenu 
+Install dependencies
+```bash
+sudo apt update && sudo apt install -y rofi scrot imagemagick
 ```
+
+Clone this repo and its submodules in your rofi config folder
+```bash
+git clone --recurse-submodules https://github.com/lu0/rofi-blurry-powermenu.git ~/.config/rofi/blurry-powermenu
+```
+
+Link the script to your PATH
+```bash
+cd ~/.config/rofi/blurry-powermenu
+sudo ln -srf powermenu.sh /usr/bin/blurry-powermenu
+```
+
+Install included fonts
+```sh
+sudo cp fonts/* /usr/share/fonts/ && fc-cache -f
+```
+
 
 ## Usage
 
-### Cinnamon, XFCE and Mate
-Run the script or create a keybinding.
-```zsh
-~/.config/rofi/powermenu.sh
+### From CLI on Cinnamon, XFCE and Mate
+
+Trigger the powermenu
+```bash
+blurry-powermenu
 ```
 
 ### Other Destop Environments
