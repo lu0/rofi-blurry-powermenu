@@ -48,16 +48,13 @@ mkdir -p "${config_dir}"
 screenshot=${config_dir}/rofi-blurry-powermenu-screenshot
 rm -f "${screenshot}.jpg" && rm -f "${screenshot}.png"
 
-# Get dimensions of the current display by using module `display_info`
-script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
-script_abs_dir_path=$(dirname "${script_abs_file_path}")
-source "${script_abs_dir_path}/current-x-display-info/display_info.sh"
-
-display_info::load
-x="${DISPLAY_INFO[x]}"
-y="${DISPLAY_INFO[y]}"
-width=${DISPLAY_INFO["width"]}
-height="${DISPLAY_INFO[height]}"
+# Get dimensions of the current display using `xdisplayinfo`, calling
+# once with option `--all` and then parsing it for further optimization.
+displayinfo=$(xdisplayinfo --all)
+x="$(echo "$displayinfo" | grep "offset-x" | cut -d" " -f2-)"
+y="$(echo "$displayinfo" | grep "offset-y" | cut -d" " -f2-)"
+width="$(echo "$displayinfo" | grep "width" | cut -d" " -f2-)"
+height="$(echo "$displayinfo" | grep "height" | cut -d" " -f2-)"
 
 # Take screenshot
 scrot -a "${x},${y},${width},${height}" "${screenshot}.jpg"
@@ -73,6 +70,9 @@ convert "${screenshot}.jpg" "${screenshot}.png"
 default_width=1920
 default_font_size=60
 fontsize=$(echo "$width*$default_font_size/$default_width" | bc)
+
+script_abs_file_path=$(readlink -f "$(which "${BASH_SOURCE[0]}")")
+script_abs_dir_path=$(dirname "${script_abs_file_path}")
 
 selected="$(echo -e "$options" |
             rofi -theme ${script_abs_dir_path}/powermenu_theme.rasi \
