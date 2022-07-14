@@ -1,1 +1,1 @@
-xdisplayinfo==2.0.0
+xdisplayinfo==2.0.1
