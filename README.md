@@ -1,7 +1,7 @@
 # Rofi Blurry Powermenu 
 
-![Preview while on desktop](preview.png)
-![Preview while busy](preview_busy.png)
+![Preview while on desktop](./assets/preview.png)
+![Preview while busy](./assets/preview_busy.png)
 
 A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi), simulates a blur effect in the current screen.
 
