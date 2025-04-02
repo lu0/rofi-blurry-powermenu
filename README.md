@@ -5,6 +5,9 @@
 
 A simple yet beautiful powermenu made with [Rofi](https://github.com/davatorium/rofi), simulates a blur effect in the current screen.
 
+**NOTE**: Tested on Xserver environments, Wayland compatibility is planned for a future release.
+
+
 - [Rofi Blurry Powermenu](#rofi-blurry-powermenu)
   - [Installation](#installation)
   - [Usage](#usage)
